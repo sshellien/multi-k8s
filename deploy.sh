@@ -12,7 +12,7 @@ docker push sshellien/multi-client:$SHA
 docker push sshellien/multi-server:$SHA
 docker push sshellien/multi-worker:$SHA
 
-kubectl appl -f k8s
+kubectl apply -f k8s
 kubectl set image deployments/server-deployment server=sshellien/multi-server:$SHA
 kubectl set image deployments/client-deployment client=sshellien/multi-client:$SHA
 kubectl set image deployments/worker-deployment worker=sshellien/multi-worker:$SHA
