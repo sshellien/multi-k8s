@@ -18,9 +18,12 @@ before_install:
   - gcloud container clusters get-credentials multi-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t sshellien/react-test -f ./client/Dockerfile.dev ./client
+  - echo Finished pre-install steps...
 
 script:
+  - echo Beginning script step...
   - docker run -e CI=true sshellien/react-test npm run test
+  - echo Finished script step
 
 deploy:
   provider: script

@@ -1,3 +1,5 @@
+echo Beginning deploy step...
+
 docker build -t sshellien/multi-client:latest -t sshellien/multi-client:$SHA -f ./client/Dockerfile ./client
 docker build -t sshellien/multi-server:latest -t sshellien/multi-server:$SHA -f ./server/Dockerfile ./server
 docker build -t sshellien/multi-worker:latest -t sshellien/multi-worker:$SHA -f ./worker/Dockerfile ./worker
